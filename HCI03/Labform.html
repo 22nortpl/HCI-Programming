@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3장 Form 실습</title>
+</head>
+<body>
+  <h3>C211107 이민상 &copy;</h3>
+  <hr>
+  <form>
+    <fieldset>
+      <legend>회원정보</legend>
+      사용자 ID : <input type="text" size="15" value=""><br>
+      비밀 번호 : <input type="password" size="15" value=""><br>
+      자소서 : <textarea cols="20" rows="5">이곳에 자기소개서 작성</textarea><br>
+
+      이메일 : <input type="email" placeholder="id@host"><br>
+      홈페이지 : <input type="url" placeholder="http://"><br>
+      전화번호 : <input type="tel" placeholder="010-1234-5678"><br>
+      선호색상 : <input type="color" value="#00BFFF" onchange="document.body.style.color=this.value"><br>
+      이미지버튼 : 
+      <input type="image" src="button.png" alt="이미지 버튼">
+      <button type="button">
+      <img src="button.png" alt="이미지 버튼">
+      </button>
+      
+      <input type="submit" value="확인">
+    </fieldset>
+    <hr>
+      지속시간 (0.0~10.0시간) :
+      <input type="number" min="0.0" max="10.0"
+      step="0.2"><br><br>
+      온도 설정 :10&deg;
+      <input type="range" min="10" max="30"
+      list="temperatures">30&deg;
+      <datalist id="temperatures">
+      <option value="12" label="Low">
+      <option value="20" label="Medium">
+      <option value="28" label="High">
+      </datalist>
+    <hr>
+    <table>
+      <tr><td>생일</td>
+      <td><input type="date" value="2026-05-06"></td></tr>
+      <tr><td>생일파티시간</td>
+      <td><input type="time"></td></tr>
+      <tr><td>생일파티장소</td>
+      <td><input type="text"></td></tr>
+    </table>
+    점심 메뉴 :
+    <select name="china">
+      <option value="1">짜장면</option>
+      <option value="2" selected>짬뽕</option>
+      <option value="3">탕수육</option>
+    </select>
+    <fieldset>
+      <legend>저녁 메뉴</legend>
+      <table>
+        <tr><input type="radio" name="china" value="1"></tr>
+        <tr>짜장면</tr><th><img src="jajang.png"></th>
+      </table>
+      </label><br>
+        <input type="radio" name="china" value="2" checked>
+        짬뽕 <img src="jjambbong.png">
+      </label><br>
+      <label>
+        <input type="radio" name="china" value="3">
+        탕수육 <img src="tangsuyuk.png">
+      </label>
+    </fieldset>
+    <br><br>
+    짜장면 <input type="checkbox" value="1">
+    짬뽕 <input type="checkbox" value="2" checked>
+    탕수육 <input type="checkbox" value="3">
+  </form>
+</body>
+</html>
