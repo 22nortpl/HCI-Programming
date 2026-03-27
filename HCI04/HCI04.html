@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HCI 4장 실습</title>
+  <style>
+    body { background-color : linen; color : blueviolet;
+      margin-left : 30px; margin-right : 30px; font-family : "Roboto", sans-serif;
+      font-size : large;}
+    h3 { text-align : right; color : darkred; font : italic bold 40px consolas, sans-serif; text-shadow : 0px 0px 3px red;}
+    p { color : red; font-size : 15px; }
+    h3, li { /* 태그 이름 셀렉터 */
+      color : brown;
+    }
+    div > div > strong { /* 자식 셀렉터 */
+      background : yellow;
+    }
+    ul strong { /* 자손 셀렉터 */
+      color : dodgerblue;
+      text-decoration: underline;
+    }
+    .warning { /* class 셀렉터 */
+      color : red;
+    }
+    body.main { /* class 셀렉터 */
+      background : aliceblue;
+    }
+    #list { /* id 셀렉터 */
+      background : mistyrose;
+    }
+    #list span{ /* 자손 셀렉터 */
+      color : forestgreen;
+      text-decoration: line-through;
+    }
+    h3:first-letter { /* 가상 클래스 셀렉터 */
+      color : red;
+    }
+    li:hover { /* 가상 클래스 셀렉터 */
+      background : yellowgreen;
+    }
+    p:hover {
+      background : yellowgreen;
+    }
+    .p1 {
+      text-indent : 3em; /* 3 글자 들여쓰기 */
+      text-align : justify; /* 양쪽 정렬 */
+    }
+    .p2 {
+      text-indent : 1em; /* 1 글자 들여쓰기 */
+      text-align : center; /* 중앙 정렬 */
+    }
+    div.warning{
+      background : yellow;
+      border-style : dotted;
+      border-color : peru;
+      margin : 40px;
+      border-width : 30px;
+      padding : 20px;
+    }
+    div.img{
+      display:inline-block;
+      background : yellow;
+      padding : 20px;
+      border : 5px dotted red;
+      margin : 30px; 
+      border-radius : 0px 20px 40px 60px;
+      box-shadow : 2px 2px 2px black,
+                  0px 0px 25px blue,
+                  0px 0px 5px darkblue;
+
+    }
+  </style>  
+</head>
+<body>
+  <h3>C211107 이민상 &copy;</h3>
+  <hr>
+  <p class="p1">저는 이민상입니다. 음악을 들으면서
+  책읽기를 좋아합니다. 김치 찌개와 막국수 무척
+  좋아합니다.</p>
+  <p class="p2">HTML의 태그만으로 기존의
+  워드 프로세서와 같이 들여쓰기, 정렬, 공백,
+  간격 등과 세밀한 <span>텍스트 제어</span>를
+  할 수 없다.그러나,
+  <strong>스타일 시트</strong>는 이를
+  가능하게 한다. 들여쓰기, 정렬에 대해서
+  알아본다
+  </p>
+  <p>오페라를 좋아하고</p>
+  <p>엘비스 프레슬리를 좋아하고</p>
+  <p style="color:blue">김치부침개를 좋아하고</p>
+  <p style="color:magenta; font-size:30px">축구를
+  좋아합니다.</p>
+  <p style="color:green">자식 태그는 부모의 스타일을
+    <em style="font-size:25px">상속</em>받는다.
+  </p>
+  <hr>
+  <h3>Web Programming</h3>
+  <hr>
+  <div>
+    <div>2학기 <strong>학습 내용</strong></div>
+    <ul>
+    <li>HTML5</li>
+    <li><strong>CSS</strong></li>
+    <li>JAVASCRIPT</li>
+  </ul>
+  <div>
+  <hr>
+  <h3>Web Programming</h3>
+    <hr>
+  <div>
+    <div>2학기 <strong>학습 내용</strong>입니다.</div>
+    <ul id="list">
+      <li><span>HTML5</span></li>
+      <li><strong>CSS</strong></li>
+      <li>JAVASCRIPT</li>
+    </ul>
+    <div class="warning">60점 이하는 F</div>
+  </div>
+  <hr>
+  <div class="img">
+    <img src="media/mio.png" alt="고양이눈">
+  </div>
+  <hr>
+  <h5>C211107 이민상 &copy;</h5>
+</body>
+</html>
