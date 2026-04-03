@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>리스트로 메뉴 만들기</title>
+<style>
+  #menubar {
+    background : none;
+    border-radius : 5px;
+      back
+  }
+  #menubar ul { /* 여백과 패딩 모두 0 */
+    margin : 0;
+    padding : 0;
+    width : 567px; /* 모든 아이템(<li>)을 한 줄에 품을 수 있는 폭 */
+  }
+  #menubar ul li {
+    background-color : lightgreen;
+    display : inline-block; /* 새 줄로 넘어가지 않게 */
+    list-style-type : none; /* 마커 삭제 */
+    padding : 0px 15px; /* top=bottom=0, left=right=15px */
+  }
+  #menubar ul li a {
+    color : white;
+    text-decoration : none; /* 링크 보이지 않게 */
+  }
+  #menubar ul li a:hover {
+    color : violet; /* 마우스 올라 갈 때 색 */
+  }
+  table { /* 이중 테두리 제거 */
+    border-collapse : collapse;
+  }
+  td, th { /* 모든 셀에 적용 */
+    text-align : left;
+    padding : 5px;
+    height : 15px;
+    width : 100px;
+  }
+  thead, tfoot { /* <thead>의 모든 셀에 적용 */
+    background : darkgray;
+    color : yellow;
+  }
+  tbody tr:nth-child(even) { /* 짝수 <tr>에 적용*/
+    background : aliceblue;
+  }
+  tbody td:hover {
+    background : pink;
+  }
+  input[type=text] { /* text 창에만 적용 */
+	  color : red; 
+  }
+  input:hover, textarea:hover { /* 마우스 올라 올 때 */
+	  background : aliceblue;
+  }
+  input[type=text]:focus, input[type=email]:focus { /* 포커스 받을 때 */
+	  font-size : 120%; 
+  }
+  label {
+	  display : block; /* 새 라인에서 시작 */
+	  padding : 5px;
+  }
+  label span {
+	  display : inline-block;
+	  width : 90px;
+	  text-align : right;
+	  padding : 10px;
+  }
+</style>
+</head>
+<body>
+  <div>C211107 이민상 &copy;</div>
+  <hr>
+  <nav id="menubar">
+    <ul>
+      <li><a href="#menubar">Home</a></li>
+      <li><a href="#menubar">Espresso</a></li>
+      <li><a href="#menubar">Cappuccino</a></li>
+      <li><a href="#menubar">Cafe Latte</a></li>
+      <li><a href="#menubar">F.A.Q</a></li>
+    </ul>
+  </nav>
+  <hr>
+  <h3>1학기 성적</h3>
+  <hr>
+  <table>
+	  <thead>
+		  <tr><th>이름</th><th>HTML</th><th>CSS</th></tr>
+	  </thead>
+	  <tfoot>
+		  <tr><th>합</th><th>310</th><th>249</th></tr>
+	  </tfoot>
+	  <tbody>
+		  <tr><td>황기태</td><td>80</td><td>70</td></tr>
+		  <tr><td>이재문</td><td>95</td><td>99</td></tr>
+		  <tr><td>이병은</td><td>85</td><td>90</td></tr>
+		  <tr><td>김남윤</td><td>50</td><td>40</td></tr>
+	  </tbody>
+  </table>
+  <hr>
+  <h3>CONTACT US</h3>
+  <hr>
+  <form>
+	  <label>
+		  <span>Name</span><input type="text" placeholder="Elvis">
+	  </label>
+	  <label>
+		  <span>Email</span><input type="email" placeholder="elvis@graceland.com">
+	  </label>
+	  <label>
+		  <span>Comment</span><textarea placeholder="메시지를 남겨주세요"></textarea>
+	  </label>
+	  <label>
+		  <span></span><input type="submit" value="submit">
+	  </label>		
+  </form>
+</body>
+</html>

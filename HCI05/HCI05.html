@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HCI 5장 실습 : 배치</title>
+<style>
+  div.first {
+	  border : 2px solid yellowgreen;
+	  color : blue;
+	  background : aliceblue;
+  }
+  span {
+	  border : 3px dotted red;
+	  background : yellow;
+  }
+  div.second {
+    display : inline-block;
+    height : 50px;
+    width : 50px;
+    border : 1px solid lightgray;
+    text-align : center;
+    color : white;
+    background : red;
+  }
+  #down:hover {
+    position : relative;
+    left : 20px;
+    top : 20px;
+    background : green;
+  }
+  #up:hover {
+    position : relative;
+    right : 20px;
+    bottom : 20px;
+    background : green;
+  }
+  div.third{
+    display : inline-block;
+    position : relative; /* 절대 배치 */
+    border : 1px solid lightgray;
+  }
+  div.third > p {
+    display : inline-block; /* div의 자식 p */
+    position : absolute; /* 절대 배치: 부모 태그 안에서 상대좌표 */
+    height : 20px;
+    width : 15px;
+    background : lightgray;
+  }
+  #float {
+    float : right;
+    border : 1px dotted black;
+    width : 8em;
+    padding : 0.25em;
+    margin : 1em;
+  }
+  #fixed {
+    position : fixed;/*브라우저 화면영역 기준*/
+    bottom : 10px;
+    right : 10px;
+    width : 100px;
+    padding : 5px;
+    background : red;
+    color : white;
+  }
+  div.cards {
+    display : inline-block; 
+    position : absolute; 
+  }
+  div.cards > img {position : absolute; }
+  #spadeA { z-index : -3; left : 10px; top : 20px; }
+  #spade2 { z-index : 2; left : 40px; top : 30px; }
+  #spade3 { z-index : 3; left : 80px; top : 40px; }
+  #spade7 { z-index : 7; left : 120px; top : 50px; }
+</style>
+</head>
+<body>
+<h3>인라인, 인라인 블록, 블록</h3>
+<hr>
+나는 <div class="first" style="display:none">
+		div(none)</div>입니다.<br><br>
+나는 <div class="first" style="display:inline">
+		div(inline)</div> 입니다.<br><br>
+나는 <div class="first" style="display:inline-block; height:50px">
+		div(inline-block)</div> 입니다.<br><br>
+나는 <div class="first" >div<span style="display:block">
+		span(block)</span> 입니다.
+	</div>
+  <h3>상대 배치, relative</h3>
+    h와 k 글자에 마우스를 올려 보세요
+  <hr>
+  <div class="second">T</div>
+  <div class="second" id="down">h</div>
+  <div class="second">a</div>
+  <div class="second">n</div>
+  <div class="second" id="up">k</div>
+  <div class="second">s</div>
+  <hr>
+  <h3>학기말 공지</h3>
+  <hr>
+  <div>
+    <p id="float">
+      24일은 피아니스트 조성진의 크리스마스 특별
+      연주가 있습니다.
+    </p>
+    <p>
+      이제 곧 겨울 방학이 시작됩니다. 학기 중 못다한
+      Java, C++ 프로그래밍 열심히 하기 바랍니다.
+      인턴을 준비하는 학생들은 프로젝트 개발에
+      더욱 힘쓰세요. 그럼 다음 학기에 만나요.
+    </p>
+  </div>
+  <hr>
+  <h3>Merry Christmas!</h3>
+  <hr>
+  <p>예수님이 탄생하셨습니다.</p>
+  <div class="third">
+    <img src="christmastree.png"
+      width="200" height="200" alt="크리스마스 트리">
+    <p style="left:50px; top:30px">M</p>
+    <p style="left:100px; top:0px">E</p>
+    <p style="left:100px; top:80px">R</p>
+    <p style="left:150px; top:110px">R</p>
+    <p style="left:30px; top:130px">Y</p>
+    <div class="cards">
+      <img id="spadeA" src="spade-A.png"
+      width="100" height="140" alt="스페이드A">
+    <img id="spade2" src="spade-2.png"
+      width="100" height="140" alt="스페이드2">
+    <img id="spade3" src="spade-3.png"
+      width="100" height="140" alt="스페이드3">
+    <img id="spade7" src="spade-7.png"
+      width="100" height="140" alt="스페이드7">
+    </div>
+  </div>
+  <h3>Merry Christmas!</h3>
+  <hr>
+  <div id="fixed">예수님이 탄생하셨습니다.
+  </div>
+  <div class="cards">
+    <img id="spadeA" src="spade-A.png"
+      width="100" height="140" alt="스페이드A">
+    <img id="spade2" src="spade-2.png"
+      width="100" height="140" alt="스페이드2">
+    <img id="spade3" src="spade-3.png"
+      width="100" height="140" alt="스페이드3">
+    <img id="spade7" src="spade-7.png"
+      width="100" height="140" alt="스페이드7">
+</div>
+</body>
+</html>
