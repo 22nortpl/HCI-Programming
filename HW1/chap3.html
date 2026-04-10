@@ -29,9 +29,68 @@
         <tr><td id="index">폼 관련 기타 태그</td><td id="detail">label, fieldset</td></tr>
       </tbody>
     </table>
-    <h3 id="second">HTML 문서 구조화 기준</h3>
+    <h3 id="second">HTML5 문서 구조화 예시</h3>
+    <p style="text-decoration : line-through">(cascading)기사</p>
+    <img src="Knight.jpg" width="50px">
+    <ul>
+      <li>장점</li>
+      <ol type="1">
+        <li>코스트 대비 상당히 높은 스탯</li>
+        <li>높은 범용성</li>
+      </ol>
+      <li>단점</li>
+      <ol type="1">
+        <li>높은 진화 및 히어로 의존도</li>
+        <li>수비지향적 유닛</li>
+      </ol>
+    </ul>
+    <dl>
+      <dt>진화 기사</dt>
+      <dd>비전투 시 받는 피해량 60% 감소</dd>
+      <dt>히어로 기사</dt>
+      <dd>2엘릭서 사용 시 쉴드 생성 및 주변 반경 타겟팅을 본인으로 변경</dd>
+    </dl>
     <h3 id="third">기본 웹 폼</h3>
-    <h3 id="fourth">고급 웹 폼</h3>
+    <form>
+      <h4>폼 형식으로 만든 주관식 퀴즈</h4>      
+      <fieldset>
+        <legend>클래시로얄 희귀도당 카드의 초기 레벨은?</legend>
+        <label>
+          1. 일반 카드 레벨 <input type="text" placeholder="숫자를 입력하세요.">
+        </label>
+        <label>
+          2. 희귀 카드 레벨 <input type="text" placeholder="숫자를 입력하세요.">
+        </label>
+        <label>
+          3. 영웅 카드 레벨 <input type="text" placeholder="숫자를 입력하세요.">
+        </label>
+        <label>
+          4. 전설 카드 레벨 <input type="text" placeholder="숫자를 입력하세요.">
+        </label>
+        <label>
+          5. 챔피언 카드 레벨 <input type="text" placeholder="숫자를 입력하세요.">
+        </label>
+      </fieldset>
+    </form>
+    <p id="fourth">고급 웹 폼</p>
+    <form>
+      <p class="rare">(overriding)희귀 카드 관련 퀴즈</p>      
+      <fieldset>
+        <legend>다음 중 희귀 카드 이름이랑 사진이 잘못 매칭된 것은?</legend>
+        <label class="ib">
+          <input type="radio" name="wrong" value="1">Giant<img src="Giant.jpg" width="50px">
+        </label>
+        <label class="ib">
+          <input type="radio" name="wrong" value="1">Musketeer<img src="Musketeer.jpg" width="50px">
+        </label>
+        <label class="ib">
+          <input type="radio" name="wrong" value="1">P.E.K.K.A<img src="Mini P.E.K.K.A.jpg" width="50px">
+        </label>
+        <label class="ib">
+          <input type="radio" name="wrong" value="1">Fireball<img src="Fireball.jpg" width="50px">
+        </label>
+      </fieldset>
+    </form>
   </section>
   <nav>
     <div id="fixed">

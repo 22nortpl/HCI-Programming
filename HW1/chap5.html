@@ -27,12 +27,59 @@
       </tbody>
     </table>
     <h3 id="second">콘텐츠 꾸미기</h3>
-    <h3 id="third">리스트 및 표 CSS</h3>
+    클래시로얄은 <div class="first" style="display:none">
+		  div(none)</div>인생게임입니다.<br><br>
+    클래시로얄은 <div class="first" style="display:inline">
+		  div(inline)</div>인생게임입니다.<br><br>
+    클래시로얄은 <div class="first" style="display:inline-block; height:50px">
+		  div(inline-block)</div> 인생게임입니다.<br><br>
+    클래시로얄은 <div class="first" >div<span style="display:block">
+		  span(block)</span> 인생게임입니다.
+	</div>
+    <h3 id="third">표 CSS</h3>
+    <h4>클래시로얄에 존재하는 카드 수</h4>
+    <table>
+      <tr>
+        <th>일반</th><td>29</td>
+      </tr>
+      <tr>
+        <th>희귀</th><td>30</td>
+      </tr>
+      <tr>
+        <th>영웅</th><td>33</td>
+      </tr>
+      <tr>
+        <th>전설</th><td>21</td>
+      </tr>
+      <tr>
+        <th>챔피언</th><td>8</td>
+      </tr>
+      <tr>
+        <th>총 합계</th><td>121</td>
+      </tr>
+    </table>
     <h3 id="fourth">폼 CSS</h3>
     <form>
-      폼 형식으로 만든 간단 MBTI 테스트지
+      <h4>폼 형식으로 만든 Clash Royale 만족도 설문조사</h4>      
       <fieldset>
-        <legend>MBTI 테스트</legend>
+        <legend>다음 질문에 솔직하게 답변해주시기 바랍니다.</legend>
+        <label>
+          <span>player tag</span><input type="text" placeholder="#XXXXXXXXX">
+        </label>
+        <label>
+          <span>years played</span><input type="text" placeholder="2 years">
+        </label>
+        <label>
+          <span>age</span><input type="text" placeholder="22">
+        </label>
+        <label>
+          <span>현재 클래시로얄에 대해 만족하시나요?</span>
+          <input type="radio" name="satisfaction" value="1">예<img src="Satisfied.jpg" width="100px">
+          <input type="radio" name="satisfaction" value="2">아니오<img src="Not Satisfied.jpg" width="100px">
+        </label>
+        <label>
+          <span>추가 의견</span><textarea placeholder="자유롭게 남겨주세요"></textarea>
+        </label>
       </fieldset>
     </form>
   </section>
