@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HCI 6장 + 8장 실습</title>
+<script src="lib.js">
+
+</script>
+</head>
+<body>
+  <h3>C211107 이민상, &copy;</h3>
+  <h3>마우스 올려 보세요</h3>
+  <hr>
+  <img src="apple.png" alt="이미지"
+    onmouseover="over(this)"
+    onmouseout="out(this)">
+  <h3>링크의 href에 자바스크립트 작성</h3>
+  <hr>
+    <a href="javascript:alert('클릭하셨어요?')">
+    클릭해보세요</a>
+  <h3>document.write() 활용</h3>
+<hr>
+<script>
+document.write("<h3>Welcome!</h3>");
+document.write("2 + 5 는 <br>");
+document.write("<mark>7 입니다.</mark>");
+document.write("<br><br>");
+let x; // 전역 변수 x 선언. var로 선언해도 동일
+function f() {
+let y; // 함수 f() 내에서만 사용되는 지역 변수 y 선언. var로 선언해도 동일
+x = 10; // 전역 변수 x에 10 저장
+y = 20; // 지역 변수 y에 20 저장
+z = 30; // 새로운 전역 변수 z가 선언되고 30이 저장됨
+if(y == 20) {
+let b = 40; // if 블록에서만 사용되는 블록 변수 b 선언
+b++;
+document.write("if 블록 내 블록변수 b = " + b + "<br>");
+}
+// 이곳에서는 블록 변수 b에 접근할 수 없음
+// 이곳에서는 변수 x, y, z에 모두 접근 가능
+document.write("함수 f() 내 지역변수 y = " + y + "<br>");
+}
+f(); // 함수 f() 호출
+document.write("전역변수 x = " + x + "<br>");
+document.write("전역변수 z = " + z);
+document.write("<br><br>")
+let oct = 0o15; // 015는 8진수. 10진수로 13
+let hex = 0x15; // 0x14는 16진수. 10진수로 21
+let condition = true; // True로 하면 안됨
+document.write("8진수 015는 십진수로 " + oct + "<br>");
+document.write("16진수 0x15는 십진수로 " + hex + "<br>");
+document.write("condition은 " + condition + "<br>");
+document.write('문자열 : 단일인용부호로도 표현' + "<br>");
+document.write("그녀는 \"누구세요\"라고 했습니다.");
+</script>
+<hr>
+<h3>switch 문으로 커피 주문</h3>
+<hr>
+<script>
+  let price = 0;
+  let text = "espresso , 에스프레소 : 2000원\n카푸치노 : 3000원\
+  \n카페라떼 : 3500원\n";
+  let coffee = prompt(text + "무슨 커피 드릴까요?", "");
+  switch(coffee) {
+    case "espresso" :
+    case "에스프레소" : price = 2000;
+      break;
+    case "카푸치노" : price = 3000;
+      break;
+    case "카페라떼" : price = 3500;
+      break;
+    default :
+      document.write(coffee + "는 없습니다.");
+  }
+  if(price != 0)
+    document.write(coffee + "는 " + price + "원입니다.");
+  document.write("<hr>");
+  for(let size=10; size<=35; size+=5) { // 5씩 증가
+    document.write("<span ");
+    document.write("style='font-size:" + size + "px'>");
+    document.write(size + "px");
+    document.write("</span>");
+  }
+</script>
+<script>
+let orgSpan = null;
+function change() {
+	let span = document.getElementById("mySpan"); // id가 mySpan인 객체 찾기
+	if (orgSpan == null){
+    orgSpan = span.getAttribute('style');
+  }
+  span.style.color = "green"; // 글자 색 green
+	span.style.fontSize = "30px"; // 글자 크기는 30픽셀
+	span.style.display = "block"; // 블록 박스로 변경
+	span.style.width = "6em"; // 박스의 폭. 6 글자 크기
+	span.style.border = "3px dotted magenta"; // 3픽셀 점선 magenta 테두리
+	span.style.margin = "20px"; // 상하좌우 여백 20px
+}
+function goback(){
+  let span = document.getElementById("mySpan"); // id가 mySpan인 객체 찾기
+	if (orgSpan != null){
+    span.setAttribute('style', orgSpan);
+  }
+}
+</script>
+<h3>CSS 스타일 동적 변경</h3>
+<hr>
+<p style="color:blue" >이것은 
+    <span id="mySpan" style="color:red">문장입니다.	</span>
+</p>
+<input type="button" value="스타일변경" onclick="change()">
+<input type="button" value="스타일되돌리기" onclick="goback()">
+</body>
+</html>

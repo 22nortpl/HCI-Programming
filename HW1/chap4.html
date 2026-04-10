@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HCI Chapter2</title>
+  <link href="chap.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h2 class="title">4장 CSS로 웹 페이지 꾸미기</h2>
+    <p id="blue">chap.css파일, 메뉴 3~4개, 표까지 필수</p>
+  </header>
+  <section>
+    <h3 id="first">4장에서 학습한 CSS 프로퍼티</h3>
+    <table>
+      <thead>
+        <tr class="headrow"><th id="index">분류</th><th id="detail">태그 : &lt;&gt; 생략</th></tr>
+      </thead>
+      <tbody>
+        <tr class="oddrow"><td id="index">색</td><td id="detail">color, background-color, border-color</td></tr>
+        <tr><td id="index">텍스트</td><td id="detail">text-indent, text-align, text-decoration</td></tr>
+        <tr class="oddrow"><td id="index">폰트</td><td id="detail">tfont-family, font-size, font-style, font-weight, font</td></tr>
+        <tr><td id="index">박스 모델</td><td id="detail">width, height, padding, margin, border</td></tr>
+        <tr class="oddrow"><td id="index">테두리</td><td id="detail">border-radius, border-image</td></tr>
+        <tr><td id="index">태그의 배경</td><td id="detail">background-color, background-image, background-position, background-size, background-repeat, background</td></tr>
+        <tr class="oddrow"><td id="index">시각적 효과</td><td id="detail">Text-shadow, box-shadow, cursor</td></tr>
+      </tbody>
+    </table>
+    <h3 id="second">셀렉터의 종류</h3>
+    <dl>
+      <dt><strong>태그 이름 셀렉터</strong></dt>
+      <dd>태그 이름이 셀렉터로 사용</dd>
+      <dt><strong>class 셀렉터</strong></dt>
+      <dd>클래스 속성으로 셀렉터 사용 (.)</dd>
+      <dt><strong>id 셀렉터</strong></dt>
+      <dd>id 속성으로  셀렉터 사용 (#)</dd>
+      <dt><strong>조합 셀렉터</strong></dt>
+      <dd>자식 혹은 자손</dd>
+      <dt><strong>전체 셀렉터</strong></dt>
+      <dd>*로 전체 지정</dd>
+      <dt><strong>속성 셀렉터</strong></dt>
+      <dd>특정 속성에 대해 적용</dd>
+      <dt><strong>가상 클래스 셀렉터</strong></dt>
+      <dd>특정 상황이 일어났을 때 적용</dd>
+    </dl>
+    <h3 id="third">박스 모델</h3>
+    <p class="box">
+      Archers
+    </p>
+    <h3 id="fourth">색, 그림자로 꾸미기</h3>
+    <h4>색 꾸미기</h4>
+    <ul>
+      <li>10진수 코드</li>
+      <p style="color : rgb(145, 26, 189)">rgb(145, 26, 189)</p>
+      <li>색 이름 표현</li>
+      <p style="color : lightgrey">이 부분은 lightgrey 색입니다.</p>
+      <li>색 관련 포르퍼티</li>
+      <p style="color : white; background-color : green; margin :10px">background-color는 green</p>
+    </ul>
+    <h4>그림자 꾸미기</h4>
+    <ul>
+      <li>텍스트 그림자</li>
+      <p style="text-shadow : 5px 5px 2px rgb(56, 245, 173)">rgb(56, 245, 173)</p>
+      <li>박스 그림자</li>
+      <div class="archers">Archers : Costs 3 elixir to deploy</div>
+  </section>
+  <nav>
+    <div id="fixed">
+      <ol>
+        <li><a href="#first">4장에서 학습한 CSS 프로퍼티</a></li>
+        <li><a href="#second">셀렉터 종류</a></li>
+        <li><a href="#third">박스 모델</a></li>
+        <li><a href="#fourth">색,그림자로 꾸미기</a></li>
+      </ol>
+    </div>
+  </nav>
+</body>
+</html>

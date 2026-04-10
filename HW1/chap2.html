@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HCI Chapter2</title>
+  <link href="chap.css" type="text/css" rel="stylesheet">
+  <style>
+    p.common{
+      background-color : lightblue;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2 class="title">2장 HTML5 기본문서 만들기</h2>
+    <p id="blue">chap.css파일, 메뉴 3~4개, 표, ol, ul, dl, img, 4종류실렉터, p태그 cascading+overriding</p>
+  </header>
+  <section>
+    <h3 id="first">2장에서 학습한 HTML 태그</h3>
+    <table>
+      <thead>
+        <tr class=
+        "headrow"><th id="index">분류</th><th id="detail">태그 : &lt;&gt; 생략</th></tr>
+      </thead>
+      <tbody>
+        <tr class="oddrow"><td id="index">문서 기본 태그</td><td id="detail">html, head, title, body, h1-h6, p, hr, br</td></tr>
+        <tr><td id="index">텍스트 꾸미기 태그</td><td id="detail">b, string, em, i, small, del, ins, sup, sub, mark</td></tr>
+        <tr class="oddrow"><td id="index">블록과 링크 태그</td><td id="detail">pre, div, span, a, iframe</td></tr>
+        <tr><td id="index">메타 태그</td><td id="detail">base, link, script, style, meta, title</td></tr>
+        <tr class="oddrow"><td id="index">이미지와 리스트</td><td id="detail">img, ol, ul, dl, li, dt, dd</td></tr>
+        <tr><td id="index">표</td><td id="detail">table, caption, thead, tbody, tfoot, tr, th, td</td></tr>
+        <tr class="oddrow"><td id="index">미디어</td><td id="detail">audio, video, embed, object</td></tr>
+      </tbody>
+    </table>
+    <h3 id="second">HTML 페이지의 기본 요소</h3>
+    <dl>
+      <dt>&lt;!DOCTYPE html&gt;</dt>
+      <dd>HTML5 문서라는 것을 알리는 지시어이다.</dd>
+      <dt>&lt;html&gt; 태그</dt>
+      <dd>작용하는 범위 지정</dd>
+      <dt>&lt;head&gt; 태그</dt>
+      <dd>속성 범위 지정</dd>
+      <dt>&lt;title&gt; 태그</dt>
+      <dd>문서 제목 지정</dd>
+      <dt>&lt;body&gt; 태그</dt>
+      <dd>본문 범위 지정</dd>
+    </dl>
+    <h3 id="third">기본, 고급 요소 사용 문서</h3>
+    <ol type="1">
+      <li>유닛 카드</li>
+      <ul>
+        <li>기사</li>
+        <li>아처</li>
+        <li>미니언</li>
+      </ul>
+      <li>마법 카드</li>
+      <ul>
+        <li>화살</li>
+      </ul>
+    </ol>
+    <p>기사 : 일반, 3 엘릭서, 유닛 카드, 공속 1.2초, 이동속도 보통 사정거리 근접:중거리</p>
+    <p>아처 : 일반, 3 엘릭서, 유닛 카드, 공속 0.9초, 이동속도 보통, 사정거리 5, 유닛 수 x2</p>
+    <p style="color : darkblue;">(overriding)미니언 : 일반, 3 엘릭서, 유닛 카드, 공속 1.2초, 이동속도 빠름, 사정거리 2.5, 유닛 수 x3</p>
+    <p class="common">(cascading) 화살 : 일반, 3 엘릭서, 마법 카드, 반경 3.5</p>
+    <h3 id="fourth">미디어 모음 인라인</h3>
+    <iframe src="Knight.jpg" width="150" height="170"></iframe>
+    <iframe src="Archers.jpg" width="150" height="170"></iframe>
+    <iframe src="Minions.jpg" width="150" height="170"></iframe>
+    <iframe src="Arrows.jpg" width="150" height="170"></iframe>
+  </section>
+  <nav>
+    <div id="fixed">
+      <ol>
+        <li><a href="#first">2장에서 학습한 HTML 태그</a></li>
+        <li><a href="#second">HTML 페이지의 기본 요소</a></li>
+        <li><a href="#third">기본, 고급 요소 사용 문서</a></li>
+        <li><a href="#fourth">미디어 모음 iframe</a></li>
+      </ol>
+    </div>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HCI Chapter2</title>
+  <style>
+    html, body{margin: 0; padding : 0; height : 100%}
+    header {
+      background-color:lightblue;
+      width: 100%;
+      height: 15%;
+      padding: 1px;
+      text-align : center;
+    }
+    section{
+      background-color:whitesmoke;
+      width : 100%;
+      height : 70%;
+    }
+    nav{
+      background-color:yellow;
+      width: 100%;
+      height: 5%;
+      padding-top:10px;
+    }
+    footer.center{
+      transform:translate(35%, 3%);
+      margin:0;
+    }
+    #menubar ul { /* 여백과 패딩 모두 0 */
+  margin : 0 auto;
+  padding : 0px;
+  width : 567px; /* 모든 아이템(<li>)을 한 줄에 품을 수 있는 폭 */
+}
+#menubar ul li {
+  background-color : lightgreen;
+  display : inline-block; /* 새 줄로 넘어가지 않게 */
+  list-style-type : none; /* 마커 삭제 */
+  padding : 0px 15px; 
+  border-radius : 5px;/* top=bottom=0, left=right=15px */
+  margin :4px;
+}
+#menubar ul li a {
+  color : white;
+  text-decoration : none; /* 링크 보이지 않게 */
+}
+#menubar ul li a:hover {
+  color : violet; /* 마우스 올라 갈 때 색 */
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HCI Homework 1</h1>
+    <h3>HCI 학습 내용 웹 문서 만들기. 시멘틱 웹, main은 &lt;style&gt; 태그로, 각 장은 .css파일 필수&excl;</h3>
+  </header>
+  <nav id="menubar">
+    <ul>
+      <li><a href="chap2.html" target="frame">Chapter 2</a></li>
+      <li><a href="chap3.html" target="frame">Chapter 3</a></li>
+      <li><a href="chap4.html" target="frame">Chapter 4</a></li>
+      <li><a href="chap5.html" target="frame">Chapter 5</a></li>
+      <li><a href="http://webprogramming.co.kr/example" target="frame">Example</a></li>
+    </ul>
+  </nav>
+  <section class="main">
+    <iframe src="chap2.html" name="frame" width="100%" height="100%"></iframe>
+  </section>
+  <footer class="center">
+    <h2>2026년 4월 10일 C211107 이민상 &copy;</h2>
+  </footer>
+</body>
+</html>
