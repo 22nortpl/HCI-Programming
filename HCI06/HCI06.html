@@ -3,9 +3,15 @@
 <head>
 <meta charset="utf-8">
 <title>HCI 6장 + 8장 실습</title>
-<script src="lib.js">
-
-</script>
+<style> 
+div.cards { position : relative; 
+            height : 200px; }
+img { position : absolute; }
+#spadeA { z-index : 1; left : 10px; top : 20px; }
+#spade2 { z-index : 2; left : 40px; top : 30px; }
+#spade3 { z-index : 3; left : 80px; top : 40px; }
+#spade7 { z-index : 7; left : 120px; top : 50px; }
+</style>
 </head>
 <body>
   <h3>C211107 이민상, &copy;</h3>
@@ -52,7 +58,7 @@ document.write("16진수 0x15는 십진수로 " + hex + "<br>");
 document.write("condition은 " + condition + "<br>");
 document.write('문자열 : 단일인용부호로도 표현' + "<br>");
 document.write("그녀는 \"누구세요\"라고 했습니다.");
-</script>
+</s>
 <hr>
 <h3>switch 문으로 커피 주문</h3>
 <hr>
@@ -110,5 +116,30 @@ function goback(){
 </p>
 <input type="button" value="스타일변경" onclick="change()">
 <input type="button" value="스타일되돌리기" onclick="goback()">
+<h3>z-index 프로퍼티</h3>
+<hr>
+<div class="cards">
+<img id="spadeA" src="spade-A.png" width="100" height="140" alt="스페이드A">
+<img id="spade2" src="spade-2.png" width="100" height="140" alt="스페이드2">
+<img id="spade3" src="spade-3.png" width="100" height="140" alt="스페이드3">
+<img id="spade7" src="spade-7.png" width="100" height="140" alt="스페이드7">
+</div>
+<br>
+<script>
+    let clicked = 1;
+    function change() {
+      let spadeA = document.getElementById("spadeA"); 
+      if (clicked <= 7)
+        clicked++;
+      else clicked = 1;
+            
+            spadeA.style.zIndex = clicked;
+            let text = clicked*10 + "px";
+            spadeA.style.top = text;
+            spadeA.style.left = text; 
+        }
+</script>
+
+  <input type="button" value="spacd-A z-index 변경" onclick="change()">  
 </body>
 </html>
