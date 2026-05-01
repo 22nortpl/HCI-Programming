@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>7장 실습 - C211107 이민상</title>
+<script>
+function pr(msg, arr) {
+	document.write(msg + arr.toString() + "<br>");
+}
+</script>
+</head>
+<body>
+<h3>Array 객체의 메소드 활용</h3>
+<hr>
+<script>
+	let a = new Array("황", "김", "이");
+	let b = new Array("박");
+	let c;
+
+	pr("배열 a = ", a);
+	pr("배열 b = ", b);
+	document.write("<hr>");
+
+	c = a.concat(b); // c는 a와 b를 연결한 새 배열
+	pr("c = a.concat(b)후 c = ", c);
+	pr("c = a.concat(b)후 a = ", a);
+
+	c = a.join("##"); // c는 배열 a를 연결한 문자열
+	pr("c = a.join() 후 c = ", c);
+	pr("c = a.join() 후 a = ", a);
+
+	c = a.reverse(); // a.reverse()로 a 자체 변경. c는 배열
+	pr("c= a.reverse() 후 c = ", c); 
+	pr("c= a.reverse() 후 a = ", a);
+
+	c = a.slice(1, 2); // c는 새 배열
+	pr("c= a.slice(1, 2) 후 c = ", c);
+	pr("c= a.slice(1, 2) 후 a = ", a);
+
+	c = a.sort(); // a.sort()는 a 자체 변경. c는 배열
+	pr("c= a.sort() 후 c = ", c);
+	pr("c= a.sort() 후 a = ", a);
+
+  // 내림차순 정렬 (황, 이, 김) (HW2)
+  c = a.sort((a, b) => b.localeCompare(a));
+  pr("c= a.sort(내림차순) 후 c = ", c);
+  pr("c= a.sort(내림차순) 후 a = ", a);
+  num = a.filter(item => item.localeCompare('박')>0).length;
+  document.write("'박’보다 큰 문자 수: "+num+"<br>");
+
+	c = a.toString(); // toString()은 원소 사이에 ","를 넣어  문자열 생성
+	document.write("a.toString() : " + c);
+</script>
+<h3>Array 객체로 배열 만들기</h3>
+<hr>
+<script>
+  let degrees = new Array(); // 빈 배열 생성
+  degrees[0] = 15.1;
+  degrees[1] = 15.4;
+  degrees[2] = 16.1;
+  degrees[3] = 17.5;
+  degrees[4] = 19.2;
+  degrees[5] = 21.4;
+
+  degrees.push(32.1);
+  degrees[degrees.length] = 35.6;
+
+  degrees.sort((a,b)=> a-b);
+  c = degrees.toString();
+  document.write("정렬후 degrees.toString() :" + c + "<br><br>")
+
+  degrees.sort((a,b)=> b-a);
+  c = degrees.toString();
+  document.write("내림차순 정렬후 degrees.toString() : " + c + "<br><br>");
+
+  let Num = 0;
+  for (let i = 0; i <degrees.length; i++)
+    if(degrees[i] >= 19)
+      Num++;
+    
+  document.write("19이상 개수 : " + Num + "<br><br>");
+
+  let sum = 0;
+  for(let i=0; i<degrees.length; i++)
+    sum += degrees[i];
+  document.write("평균 온도는 " + sum/degrees.length + "<br>");
+</script>
+<h3>Date 객체로 현재 시간 알아내기</h3>
+<hr>
+<script>
+	let now = new Date(); // 현재 시간 값을 가진 Date 객체 생성
+	document.write("현재 시간 : " + now.toUTCString()
+				+ "<br><hr>");
+	document.write(now.getFullYear() + "년도<br>");
+	document.write(now.getMonth() + 1 + "월<br>");
+	document.write(now.getDate() + "일<br>");
+	document.write(now.getHours() + "시<br>");
+	document.write(now.getMinutes() + "분<br>");
+	document.write(now.getSeconds() + "초<br>");
+	document.write(now.getMilliseconds()
+				+ "밀리초<br><hr>");
+
+	let next = new Date(2023, 7, 15, 12, 12, 12); // 7은 8월
+	document.write("next.toLocaleString() : "
+				+ next.toLocaleString() + "<br><br>");
+  
+  todayStr = now.getFullYear() + '/' + String(now.getMonth() + 1).padStart(2, '0') + '/' + String(now.getDate()).padStart(2, '0');
+  document.write(todayStr+"<br><br>");
+</script>
+</body>
+</html>
