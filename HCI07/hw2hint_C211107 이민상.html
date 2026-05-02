@@ -40,7 +40,7 @@
     </style>
 </head>
 <body>
-    <h3>HW2를 위한 실습: 학번, 이름 추가 필수!</h3>
+    <h3>HW2를 위한 실습: &copy; C211107 이민상</h3>
     <hr>
     <h2>통계</h2>
       <div>
@@ -94,15 +94,15 @@
 
         function getBalanceColor(balance){
             if (balance < 11000)
-              return 'red';
+              return '#FF0000';
             else if (balance < 20000)
-              return 'orange';
+              return '#FFA500';
             else if (balance < 30000)
-              return 'yellow';
+              return '#FFFF00';
             else if (balance < 40000)
-              return 'green';
+              return '#008000';
             else
-              return 'blue'
+              return '#0000FF'
         }
 
         function renderAccountsList() {
