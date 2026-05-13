@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HCI Homework2</title>
+  <style>
+    @import url(Hw2.css);
+  </style>
+</head>
+<body>
+  <header>
+    <h1>오늘의 날짜 : <span id="today"></span></h1>
+  </header>
+  <section>
+    <h2>통계</h2>
+    <div class="inputbox">
+      <br>
+      <p>오늘 할 일: <span id="todayDue">0</span>개</p>
+      <p>완료 한 일: <span id="complete">0</span>개</p>
+      <p>남은 할 일: <span id="remain">0</span>개</p>
+      <br>
+    </div>
+  </section>
+  <section>
+    <h2>할 일 입력</h2>
+    <div class="inputbox">
+      <table>
+         <thead>
+            <tr><th class="aligncenter">제목</th><th class="aligncenter">시간</th><th class="aligncenter">중요도(1~5)</th><th></th></tr>
+            </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" id="todotitle" placeholder="예 : 프로그램 HW2 작성"></td>
+              <td><input type="time" id="time"></td>
+              <td><input type="number" id="priority" min="1" max="5" step="1" value="3"></td>
+              <td><button id="addBtn">할 일 추가</button></td>
+             </tr>
+           </tbody>
+    </table>
+    </div>
+    <p id="message" class="message"></p>
+    <br>
+  </section>
+  <section>
+    <div class="listHeader">
+      <h2>할 일 목록</h2>
+      <div class="sortBtns">
+        <button class="sort" id="sortPriorityBtn">중요도순 정렬</button>
+        <button class="sort" id="sortTimeBtn">시간순 정렬</button>
+      </div>
+    </div>
+    <ul id="todoList"></ul>
+  </section>
+  <footer>
+    <p id="alignright">C211107, 이민상 &copy;</p>
+  </footer>
+  <script src="Hw2.js"></script>
+</body>
+</html>

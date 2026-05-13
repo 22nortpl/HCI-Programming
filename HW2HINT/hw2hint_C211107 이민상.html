@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HCI 실습 for HW2</title>
+    <style>
+        
+        
+        #accList {
+            list-style: none;
+            padding: 0;
+            }
+
+        .account-item {
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-top: 10px solid #999;
+            border-radius: 10px;
+            background: #fafafa;
+            }
+        .account-info {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .account-info strong {
+            display: inline-block;
+            width: 100px;
+            margin-bottom:6px;
+            }
+
+        .crossed strong,
+        .crossed span {
+        text-decoration: line-through;
+        color: #888;
+        }
+        
+    
+    </style>
+</head>
+<body>
+    <h3>HW2를 위한 실습: &copy; C211107 이민상</h3>
+    <hr>
+    <h2>통계</h2>
+      <div>
+        <p>계좌 수: <span id="totalNumber">0</span>개</p>
+        <p>잔고 총액: <span id="totalBalance">0</span>원</p>
+      </div>
+    <table>
+         <thead>
+            <tr><th>계좌명</th><th>계좌코드</th><th>잔액</th><th></th></tr>
+            </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" id="owner" placeholder="계좌주 이름"></td>
+              <td><input type="text" id="code" placeholder="코드번호"></td>
+              <td><input type="number" id="balance" min="0" max="9999999" step="1000" value="10000"></td>
+              <td><button id="addBtn">추가</button></td>
+             </tr>
+           </tbody>
+    </table>
+    <p id="message" class="message"></p>
+    <hr>
+    
+      <h3>계좌 목록</h3>x
+      <button id="sortOwnerBtn" type="button">계좌명순 정렬</button>
+      <ul id="accList"></ul>
+
+    <script>
+        const accountArrays = []; //배열 리터럴 표기법 
+        const ownerInput = document.getElementById('owner');
+        const codeInput = document.getElementById('code');
+        const balanceInput = document.getElementById('balance');
+        const message = document.getElementById('message');
+        const accList = document.getElementById('accList');
+        const addBtn = document.getElementById('addBtn');
+        const sortOwnerBtn = document.getElementById('sortOwnerBtn');
+        const totalNumber = document.getElementById('totalNumber');
+        const totalBalance = document.getElementById('totalBalance');
+        
+
+        function updateStats() {
+            const count = accountArrays.length;
+            let total = 0;
+            for (let i = 0; i < accountArrays.length; i++) {
+                let acc = accountArrays[i]; 
+                total += acc.balance;
+            }
+
+            totalNumber.textContent = count;
+            totalBalance.textContent = total;
+        }
+
+        function getBalanceColor(balance){
+            if (balance < 11000)
+              return '#FF0000';
+            else if (balance < 20000)
+              return '#FFA500';
+            else if (balance < 30000)
+              return '#FFFF00';
+            else if (balance < 40000)
+              return '#008000';
+            else
+              return '#0000FF'
+        }
+
+        function renderAccountsList() {
+
+            accList.innerHTML = '';
+
+            let num = accountArrays.length;
+            for (let index = 0; index < num; index++) {
+                const account = accountArrays[index];
+                const li = document.createElement('li');
+                
+                li.className = 'account-item';
+                li.style.borderTopColor = getBalanceColor(account.balance);
+
+                if (account.cross) {
+                   li.classList.add('crossed');
+                }
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'account-info';
+
+                const ownerEl = document.createElement('strong');
+                ownerEl.textContent = account.owner;
+                
+                const othersEl = document.createElement('span');
+                othersEl.innerHTML = `  코드: ${account.code}| 잔액: ${account.balance}`+'     \n';
+
+                const btnDiv = document.createElement('span');
+
+                const crossBtn = document.createElement('button');
+                crossBtn.textContent = account.cross ? '취소' : '줄긋기';
+                crossBtn.onclick = function() {
+                  account.cross = !account.cross;
+                  renderAccountsList();
+                };
+
+                btnDiv.appendChild(crossBtn);
+
+                itemDiv.appendChild(ownerEl); 
+                itemDiv.appendChild(othersEl);
+                itemDiv.appendChild(btnDiv);
+
+                li.appendChild(itemDiv);
+                accList.appendChild(li);
+            }
+        }
+
+        function addAccount() {
+          const ownerval = ownerInput.value.trim();
+          const codeval = codeInput.value.trim();
+          // Date.now()를 사용하여 고유하고 간단한 ID 생성 가능
+          const idval = Date.now();
+                    
+          const balanceval = Number(balanceInput.value);
+
+          if (ownerval.length === 0) {
+            message.textContent = '계좌 이름을 입력하세요.';
+            return;
+          }
+
+          const acc = {
+            id: idval, 
+            owner : ownerval, // 계좌 주인
+            code : codeval, // 계좌 코드
+            balance : balanceval, // 잔액 프로퍼티
+            cross : false
+          };
+        
+          accountArrays.push(acc); 
+          //accountArrays[accountArrays.length] = acc; // OK
+          renderAccountsList();
+          updateStats();
+
+          ownerInput.value = '';
+          codeInput.value = '';
+          balanceInput.value = 10000;
+          message.textContent = '계좌가 추가되었습니다.';
+        }
+
+
+        function sortByOwner() {
+            accountArrays.sort((a, b) => a.owner.localeCompare(b.owner));
+            renderAccountsList();
+            message.textContent = '계좌명 순으로 정렬되었습니다.';
+        }
+
+        addBtn.addEventListener('click', addAccount);
+        sortOwnerBtn.addEventListener('click', sortByOwner);
+
+        updateStats();
+    </script>
+
+</body>
+</html>

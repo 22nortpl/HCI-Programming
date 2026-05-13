@@ -1,0 +1,174 @@
+.inputbox{
+  background-color: aqua;
+}
+
+h1{
+  margin-bottom:30px;
+}
+
+h2{
+  margin:30px 0 15px 0;
+}
+
+table{
+  width : 100%;
+  margin : 0 auto;
+  border-collapse: collapse;
+}
+footer{
+  position : fixed;
+  right : 10px;
+  bottom : 5px;
+}
+/* input 공통 디자인 */
+input{
+  width: 95%;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding-left: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+/* time input 가운데 정렬 느낌 */
+input[type="time"]{
+  text-align: center;
+}
+
+/* number input 크기 줄이기 */
+input[type="number"]{
+  text-align: center;
+}
+
+/* 버튼 스타일 */
+#addBtn{
+  width: 120px;
+  height: 42px;
+  background-color: #4b6edb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.sort{
+  width: 120px;
+  height: 42px;
+  background-color: #860dff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.sort:hover {
+  background-color: #710bc9; 
+}
+
+#addBtn:hover{
+  background-color: #3b5cc4;
+}
+
+.listHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#sort{
+  display : inline-block;
+}
+
+#today{
+  color : grey;
+}
+
+#alignright{
+  text-align: right;
+}
+
+#todoList {
+  list-style: none;
+  padding: 0;
+  margin-top : 15px;
+}
+
+#todoList li {
+    display: flex;
+    align-items: center;
+}
+
+.complete-btn {
+    margin-left: auto;
+}
+
+.delete-btn {
+    margin-left: 8px;
+}
+
+.todo-item {
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  border-left: 10px solid #999; /* ← JS가 색 바꿔줌 */
+  border-radius: 12px;
+  background: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-info {
+  display: flex;
+  align-items: center;
+  width : 100%;
+}
+
+.todo-info strong {
+  display: inline-block;
+  width: 100px;
+  margin-bottom:6px;
+}
+
+.completed strong,.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+#message{
+  color : rgb(253, 16, 16);
+}
+
+.todo-item button {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-left: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* 완료 버튼 */
+.todo-item button:first-child {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* 삭제 or 취소 버튼 */
+.todo-item button:last-child {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.todo-item button:hover {
+  opacity: 0.85;
+}
+
+.btns {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+}
