@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>HCI 9장 실습3</title>
+<script>
+let sum=0;
+function calc(cBox) {
+	if(cBox.checked)
+		sum += parseInt(cBox.value);
+	else
+		sum -= parseInt(cBox.value);
+	document.getElementById("sumtext").value = sum;
+}
+function FindInitial(){
+  sum = 0;
+
+  let hat = document.getElementsByName("hat")[0];
+  let shose = document.getElementsByName("shose")[0];
+  let bag = document.getElementsByName("bag")[0];
+  if (hat.checked)
+    sum += parseInt(hat.value);
+  if (shose.checked)
+    sum += parseInt(shose.value);
+  if (bag.checked)
+    sum += parseInt(bag.value);
+  document.getElementById("sumtext").value = sum;
+}
+</script>
+</head>
+<body onload="FindInitial()">
+  <h3>C211107, 이민상 &copy;</h3>
+<h3>물품을 선택하면 금액이 자동 계산됩니다</h3>
+<hr>
+<form>
+	<input type="checkbox" name="hat" value="10000"
+		onclick="calc(this)">모자 1만원
+	<input type="checkbox" name="shose" checked value="30000"
+		onclick="calc(this)">구두 3만원
+	<input type="checkbox" name="bag" value="80000"
+		onclick="calc(this)">명품가방 8만원<br>
+	지불하실 금액 <input type="text" id="sumtext" value="0" >
+</form>
+</body>
+</html>

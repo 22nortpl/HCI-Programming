@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>HCI 9장 실습2</title>
+<style>
+div {
+	background : skyblue;
+	width : 250px;
+}	
+</style>
+<script>
+function calculate() {
+	let exp = document.getElementById("exp");
+	let result = document.getElementById("result");
+	result.value = eval(exp.value);
+}
+</script>
+</head>
+<body>
+<h3>C211107, 이민상 &copy;</h3>
+<h3> onclick, 계산기 만들기</h3>
+<hr>
+계산하고자 하는 수식을
+입력하고 계산 버튼을 눌러봐요.
+<br>
+<br>
+<form>
+식 <input type="text" id="exp" value=""><br>
+값 <input type="text" id ="result"> 
+<input type="button" value=" 계산  "
+	onclick="calculate()">
+</form>
+
+<script>
+let width=1; // 테두리 두께
+function down(obj) {
+	obj.style.fontStyle = "italic";
+}
+function up(obj) {
+	obj.style.fontStyle = "normal";
+}
+function over(obj) {
+	obj.style.borderColor = "violet";
+	// 테두리 폭이 0일 때 색은 보이지 않는다.
+}
+function out(obj) {
+	obj.style.borderColor = "lightgray";
+}
+function wheel(e, obj) { // e는 이벤트 객체
+	if(e.wheelDelta < 0) { // 휠을 아래로 굴릴 때
+		width--; // 폭 1 감소
+		if(width < 0) width = 0; // 폭이 0보다 작아지지 않게
+	}
+	else // 휠을 위로 굴릴 때
+		width++; // 폭 1 증가
+	obj.style.borderStyle = "ridge";
+	obj.style.borderWidth = width+"px";
+}
+</script>
+<h3>마우스 관련 이벤트 리스너</h3>
+<hr>
+<div>마우스 관련
+<span onmousedown="down(this)"
+onmouseup="up(this)"
+onmouseover="over(this)"
+onmouseout="out(this)"
+onwheel="wheel(event, this)"
+style="display:inline-block">이벤트
+</span>가 발생합니다.
+</div>
+<h3>마우스 이벤트 객체의 프로퍼티와 onmousemove</h3>
+<hr>
+이미지 위에 마우스를 움직일 때 onmousemove 리스너가 실행되고,  
+마우스의 위치를 보여줍니다.<br><br>
+<img src="beach.png" onmousemove="where(event)"><br><br>
+<div id="div"></div>
+<script>
+let div = document.getElementById("div");
+function where(e) {
+	let text = "버튼=" + e.button + "<br>";
+	text += "(screenX, screenY)=" + e.screenX + "," + e.screenY + "<br>";
+	text += "(clientX, clientY)=" + e.clientX + "," + e.clientY + "<br>";
+	text += "(offsetX, offsetY)=" + e.offsetX + "," + e.offsetY + "<br>";
+	text += "(x, y)=" + e.x + "," + e.y + "\n";
+	div.innerHTML = text;
+}
+</script>
+<script>
+function hideMenu() {
+	alert("오른쪽 클릭<컨텍스트 메뉴>금지");
+	return false;
+}
+//document.oncontextmenu=hideMenu;
+</script>
+<h3>oncontextmenu에서 컨텍스트 메뉴 금지</h3>
+<hr>
+마우스 오른쪽 클릭은 금지됩니다. 아무곳이나
+클릭해도 컨텍스트 메뉴를 볼 수 없습니다.<br>
+<img src="beach2.png" alt="miami" oncontextmenu="return false;">
+</body>
+</html>
