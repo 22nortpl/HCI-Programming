@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HCI 11장 실습</title>
+</head>
+<body>
+<h3>C211107 이민상 &copy;</h3>
+<h3>원호 그리기</h3>
+<hr>
+<canvas id="myCanvas" style="background-color:aliceblue"
+	 width="200" height="400"></canvas>
+<script>
+	let canvas = document.getElementById("myCanvas");
+	let context = canvas.getContext("2d");
+	
+	context.beginPath(); // 빈 경로 구성
+	context.strokeStyle="magenta";	
+	context.arc(100, 70, 30, 0, 1.5*Math.PI, false); // 시계 방향
+  context.moveTo(110, 70)
+  context.arc(100, 70, 10, 0, 2*Math.PI, false);//시작점과 끝점이 연결
+	context.stroke(); // 경로에 있는 원호를 그린다
+
+	context.beginPath(); // 이전 경로 지우고 빈 경로 구성                  
+	context.strokeStyle="blue";
+	context.arc(100, 70, 50, Math.PI/2, Math.PI, true); // 시계 방향
+	context.stroke(); // 경로에 있는 한 개의 원호를 캔버스에 그린다
+
+  context.beginPath();
+    context.moveTo(20, 120);
+    context.lineTo(150, 150);
+    context.strokeStyle = "blue";
+	context.stroke(); // 1 픽셀의 blue 직선 그리기
+	
+	// 10 픽셀 yellowgreen 사각형 그리기
+    context.beginPath();
+	context.rect(40, 180, 120, 50);
+    context.lineWidth = 10; // 선 굵기 10픽셀
+    context.strokeStyle = "yellowgreen"; // 선 색
+	context.stroke();
+  context.fillStyle = "violet";
+  context.fill(); // 사각형 내부 칠하기
+	
+	// 20 픽셀의 violet 색 원호 그리기 
+    context.beginPath();
+    context.arc(80, 320, 50, 0, 1.5*Math.PI, false);
+    context.closePath(); // 원호의 끝점과 경로 시작점(원호중심)을 연결하는 직선 자동 추가
+    context.fillStyle = "yellowgreen";	
+	context.fill();	// 원호 내부 칠하기
+    context.lineWidth = 20; // 선 굵기 20픽셀
+    context.strokeStyle = "violet"; // 선 색
+	context.stroke(); 
+</script>
+<h3>텍스트 그리기</h3>
+<hr>
+<canvas id="myCanvas2" style="background-color:aliceblue"
+	 width="500" height="400"></canvas>
+<script>
+	let canvas2 = document.getElementById("myCanvas2");
+	let context2 = canvas2.getContext("2d");
+    context2.strokeStyle = "blue";
+    
+    // font 프로퍼티 활용
+    for(let i=0; i<4; i++) {
+    	context2.font = (10 + i*10) + "px forte";
+    	context2.strokeText("Javascript 재밌다.", 10, 30+i*50);
+    }
+    
+    // 텍스트 외곽선 그리기 
+    context2.font = "italic 50px forte";
+    context2.strokeStyle = "magenta";
+	context2.lineWidth = 3;
+	context2.textAlign = "left";
+	context2.strokeText("Javascript 재밌다.", 50, 250); 
+
+	// 텍스트 채워 그리기
+	context2.fillStyle = "green";
+	context2.textAlign = "right";	
+	context2.fillText("Javascript 재밌다.", 490, 300);
+</script>	 
+<h3>(20, 20)에 100x200 크기로 그리기</h3>
+<hr>
+<canvas id="myCanvas3" 
+		style="background-color:aliceblue"
+	 	width="300" height="250"></canvas>
+<script>
+	let canvas3 = document.getElementById("myCanvas3");
+	let context3 = canvas3.getContext("2d");
+	let img = new Image();
+	img.onload = function () {
+		context3.drawImage(img, 200, 300, 200, 250, 0, 0, 250);
+	}
+	img.src = "lion.jpg";
+</script>	 
+</body>
+</html>
