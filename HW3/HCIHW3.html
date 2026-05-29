@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HCI HW3 Hint</title>
+
+<link rel="stylesheet" href="HCIHW3.css">
+</head>
+<body onload="init()">
+<h3>작은 그림판 : C211107, 이민상 &copy;</h3>
+<hr>
+<span>도구 : </span>
+<button type="button" id = "pen" onclick="setTool('pen')">
+  <img src="pen.png"width="30px" height="30px" alt="연필"><span></span>
+</button>
+<button id="rect" onclick="setTool('rect')">
+  <img src="rect.png"width="30px" height="30px" alt="사각형"><span></span>
+</button>
+<button id="circle" onclick="setTool('circle')">
+  <img src="circle.png"width="30px" height="30px" alt="원"><span></span>
+</button>
+<button id="text" onclick="setTool('text')">
+  <img src="text.png"width="30px" height="30px" alt="텍스트"><span></span>
+</button>
+<br>
+<br>
+<span>선 색 : </span>
+<input type="color" id="strokeColor" value="#000000">
+<span>채우기 색 : </span>
+<input type="color" id="fillColor" value="#000000">
+<span>선 굵기 : </span>
+<input type="number" id="lineWidth" value="2" min="1">
+<span>채우기 : </span>
+<input type="checkbox" id="fillCheck">
+<br>
+<br>
+<span>텍스트 : </span>
+<input type="text" id="textInput">
+<span>글자 크기 : </span>
+<input type="number" id="fontSize" value="20">
+<button type="button" onclick="clearCanvas()">
+  캔버스 지우기<span></span>
+</button>
+<br>
+<br>
+<div class="status">
+  <span>현재도구 : </span>
+  <span id="toolName"></span>
+
+  <span id="mouseText">마우스 좌표 : </span>
+  <span id="mousePos"></span>
+</div>
+<br>
+<br>
+<canvas id="myCanvas" style="background-color:aliceblue" width="400" height="300">
+</canvas>
+<script src="HCIHW3.js"></script>
+</body>
+</html>

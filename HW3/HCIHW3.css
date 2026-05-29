@@ -1,0 +1,14 @@
+/* number 입력칸 크기 */
+input[type="number"]{
+    width: 50px;
+}
+
+/* 상태 표시 영역 */
+.status{
+    margin-top: 10px;
+}
+
+/* 마우스 좌표 왼쪽 간격 */
+#mouseText{
+    margin-left: 40px;
+}
