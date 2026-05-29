@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>HCI 10장 실습</title>
+<style>
+#logoDiv {
+ 	display : none;
+	position : absolute; left : 0; top : 0;
+	width : 100%; height : 100%;
+	z-index : -1; /* 로고 이미지를 문서의 밑바닥에 배치 */
+}
+</style>
+<script>
+window.onbeforeprint=function (e) {	
+	let logoDiv = document.getElementById("logoDiv");
+	logoDiv.style.display = "block"; // block으로 변경. 로고가 화면에 나타나게 함
+}
+window.onafterprint=hideLogo; 
+function hideLogo() {
+	let logoDiv = document.getElementById("logoDiv");
+	logoDiv.style.display = "none"; // 로고를 보이지 않게 함
+} 
+</script>
+</head>
+<body onload="startScroll(1000)">
+  <h3>C211107, 이민상 &copy;</h3>
+  <h3>onbeforeprint, onafterprint 이벤트 예</h3>
+<hr>
+<div id="logoDiv">
+	<img src="logo.png" alt="이미지 없습니다.">
+</div>
+<p>안녕하세요. 브라우저 윈도우에서는 보이지 않지만, 프린트시에는 회사 로고가 출력되는 예제를
+보입니다. 마우스 오른쪽 버튼을 눌러 인쇄 미리보기 메뉴를 선택해 보세요.</p>
+  <h3>이미지에 마우스를 올리고 5초간 그대로 있을 때 사이트로 이동합니다</h3>
+  <hr>
+  <img id="img" src="naver.gif" 
+    onmouseover="startTimer(5000)"
+    onmouseout="cancelTimer()">
+  <script>
+  let timerID=null;
+  function startTimer(time) {
+    // 타이머 시작
+    timerID = setTimeout("load('http://www.naver.com')", time);
+    
+    // 툴팁 메시지
+    document.getElementById("img").title = "타이머 작동 시작...";
+  }
+  function cancelTimer() {
+    if(timerID !=null) 
+      clearTimeout(timerID); // 타이머 중단
+      alert("타이머가 중단되었습니다!");
+  }
+  function load(url) {
+    window.location = url; // 현재 윈도우에  url 사이트 로드 
+    //window.open(url, "_self");
+  }
+  </script>
+  <h3>텍스트가 자동 회전하며, 마우스로 클릭하면 중단합니다.</h3>
+  <hr>
+  <div><span id="span" style="background-color:yellow">
+      자동 회전하는 텍스트입니다.</span>
+  </div>
+  <script>
+    let span = document.getElementById("span");
+    let timerID2 = setInterval("doRotate()", 200); // 200밀리초 주기로 doRotate() 호출
+
+    let toggleTimer = true;
+
+    span.onclick = function (e) { // 마우스 클릭 이벤트 리스너
+      if(toggleTimer)
+      {  
+        clearInterval(timerID2);
+        toggleTimer = false;
+      } // 타이머 해제. 문자열회전 중단
+      else{
+        timerID2 = setInterval("doRotate()", 200);
+        toggleTimer= true;
+      }
+    }
+
+    function doRotate() {
+      let str = span.innerHTML;
+      let firstChar = str.substr(0, 3);
+      let remains = str.substr(3, str.length-3);
+      str = remains + firstChar;
+      span.innerHTML = str; // str 텍스트를 span 객체에 출력
+    }
+  </script>
+  <h3>윈도우의 위치와 크기 조절</h3>
+  <hr>
+  <button onclick="smallWindowOpen()">smallWindow 열기</button>
+  <button onclick="smallWindowClose()">smallWindow 닫기</button>
+  </body>
+  <script>
+    let smallWin = null;
+    function smallWindowOpen(){
+      smallWin = window.open("small.html", "small", "left=10, top=10, width=300, height=400");
+    }
+    function smallWindowClose(){
+      if(smallWin != null)
+        smallWin.close();
+    }
+  </script>
+  <h3>자동 스크롤 페이지</h3>
+  <button onclick="startScroll(1000, 1)">아래로</button>
+  <button onclick="startScroll(1000, -1)">위로</button>
+  <button onclick="stopScroll()">정지</button>
+  <script>
+  let Dir = 1;
+  let scrollTimer = null;
+  function startScroll(interval, scrollDir) {
+    Dir = scrollDir;
+    if(scrollTimer == null)
+      scrollTimer = setInterval("autoScroll()", interval);
+  }
+
+  function autoScroll() {
+    window.scrollBy(0, 10*Dir);
+  }
+  function stopScroll(){
+    if(scrollTimer != null)
+      clearInterval(scrollTimer);
+      scrollTimer = null;
+  }
+  </script>
+  <hr>
+  <h3>꿈길(이동순)</h3>
+  꿈길에<br>
+  발자취가 있다면<br>
+  님의 집 창밖<br>
+  그 돌계단 길이 이미 오래 전에<br>
+  모래가 되고 말았을 거예요<br><br>
+  하지만<br>
+  그 꿈길에서 자취 없다 하니<br>
+  나는 그것이 정말 서러워요<br><br>
+  이 밤도<br>
+  나는 님의 집 창밖<br>
+  그 돌계단 위에 홀로 서서<br>
+  혹시라도 님의 목소리가 들려올까<br>
+  고개 숙이고 엿들어요<br>
+  <h3>웹 페이지 프린트 C211107, 이민상 &copy;</h3>
+  <hr>
+  <p>window 객체의 print() 메소드를 호출하면 
+  window 객체에 담겨 있는 웹 페이지가 프린트 됩니다.
+  <p>
+  <a href="javascript:window.print()">이곳을 누르면 프린트 됩니다.</a><p>
+  <input type="button" value="프린트" onclick="window.print()">
+  <hr>
+  <script>
+    function load() {
+      let select = document.getElementById("site");
+      window.location=select.options[select.selectedIndex].value;
+    }
+  </script>
+  <h3>window.location으로 웹 사이트 접속</h3>
+  <hr>
+  사이트 선택 :
+  <select id="site">
+    <option value="http://www.naver.com" selected>네이버
+    <option value="http://www.google.com">구글
+    <option value="http://www.microsoft.com">마이크로소프트
+  </select>
+  <p>
+  <button onclick="load()">웹 사이트 접속</button>
+  <script>
+  function printScreen() {
+    let text = "availHeight:" + screen.availHeight + "<br>";
+      text += "availWidth:" + screen.availWidth + "<br>";
+      text += "colorDepth:" + screen.colorDepth + "<br>";		
+      text += "pixelDepth:"	+ screen.pixelDepth + "<br>";
+      text += "height:" + screen.height + "<br>";	
+      text += "width:" + screen.width + "<br>";
+    document.getElementById("div").innerHTML = text;
+  }
+  </script>
+  <h3>스크린 장치에 관한 정보</h3>
+  <button onclick="printScreen()">정보 출력</button>
+  <hr>
+  <div id="div"></div>
+  <h3>history 객체 활용</h3>
+  <hr>
+  <button onclick="history.back()">back()</button>
+  <button onclick="history.forward()">forward()</button>
+  <button onclick="history.go(2)">go(2)</button>
+</body>
+</html>

@@ -59,7 +59,6 @@ let canvas, context;
 
     document.getElementById("toolName").textContent = toolText;
   }
-
   function draw(curX, curY) { 
     context.beginPath();
     context.moveTo(startX, startY);
@@ -92,8 +91,38 @@ let canvas, context;
     let text = document.getElementById("textInput").value;
     let size = document.getElementById("fontSize").value;
 
+    let w = curX - startX;
+    let h = curY - startY;
+
+    // 글자 스타일
     context.font = size + "px serif";
-    context.fillText(text, curX, curY);
+    if(document.getElementById("fillCheck").checked)
+      context.fillStyle = document.getElementById("fillColor").value;
+    else
+      context.fillStyle = document.getElementById("strokeColor").value;
+    // baseline 설정
+    context.textBaseline = "middle";
+
+    // 정렬 가져오기
+    let align = document.querySelector("select").value;
+    context.textAlign = align;
+
+    let textX;
+
+    if(align == "left")
+      textX = startX + 5;
+    else if(align == "center")
+      textX = startX + w/2;
+    else
+      textX = startX + w - 5;
+
+    let textY = startY + h/2;
+
+    let padding = 5;
+
+    let maxWidth = Math.abs(w) - 2 * padding;
+
+    context.fillText(text, textX, textY, maxWidth);
   }
   function down(e) { 
     startX = e.offsetX; startY = e.offsetY; // down 했을 때, 그 위치에서 시작 (HW3 힌트!)
@@ -110,21 +139,43 @@ let canvas, context;
     }
     else if (tool == "circle"){
       context.putImageData(imageData, 0, 0);
+      
       drawCircle(curX, curY);
     }
     else if(tool == "text"){
+      context.putImageData(imageData, 0, 0);
+      let w = curX - startX;
+      let h = curY - startY;
+
+      context.beginPath();
+
+      context.strokeStyle =
+        document.getElementById("fillCheck").checked
+        ? document.getElementById("fillColor").value
+        : document.getElementById("strokeColor").value;
+
+      context.setLineDash([5, 3]);
+
+      context.rect(startX, startY, w, h);
+
+      context.stroke();
+
+      context.setLineDash([]);
+
       writeText(curX, curY);
     }
     drawing = false;
   }
 
   function move(e) {
-    if(!drawing) return; // 마우스가 눌러지지 않았으면 리턴
     let curX = e.offsetX;
     let curY = e.offsetY;
 
     document.getElementById("mousePos").textContent =
     "(" + curX + ", " + curY + ")";
+
+    if(!drawing) return; // 마우스가 눌러지지 않았으면 리턴
+
     if (tool == "pen"){
       draw(curX, curY);	
       startX = curX; startY = curY;
@@ -136,6 +187,26 @@ let canvas, context;
     else if (tool == "circle"){
       context.putImageData(imageData, 0, 0);
       drawCircle(curX, curY);
+    }
+    else if (tool == "text"){
+      context.putImageData(imageData, 0, 0);
+      let w = curX - startX;
+      let h = curY - startY;
+
+      context.beginPath();
+
+      context.strokeStyle =
+        document.getElementById("fillCheck").checked
+        ? document.getElementById("fillColor").value
+        : document.getElementById("strokeColor").value;
+
+      context.setLineDash([5, 3]);
+
+      context.rect(startX, startY, w, h);
+
+      context.stroke();
+
+      context.setLineDash([]);
     }
   }
   function out(e) { drawing = false; }

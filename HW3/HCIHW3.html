@@ -38,6 +38,12 @@
 <input type="text" id="textInput">
 <span>글자 크기 : </span>
 <input type="number" id="fontSize" value="20">
+<span>정렬 : </span>
+<select>
+  <option value="left">왼쪽</option>
+  <option value="center">가운데</option>
+  <option value="right">오른쪽</option>
+</select>
 <button type="button" onclick="clearCanvas()">
   캔버스 지우기<span></span>
 </button>
@@ -46,7 +52,6 @@
 <div class="status">
   <span>현재도구 : </span>
   <span id="toolName"></span>
-
   <span id="mouseText">마우스 좌표 : </span>
   <span id="mousePos"></span>
 </div>
